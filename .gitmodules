@@ -1,0 +1,6 @@
+[submodule "src/arbotix_ros"]
+	path = src/arbotix_ros
+	url = https://github.com/vanadiumlabs/arbotix_ros.git
+[submodule "src/rbx1"]
+	path = src/rbx1
+	url = https://github.com/pirobot/rbx1.git
