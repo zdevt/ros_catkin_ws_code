@@ -7,7 +7,7 @@
 #
 #        Version:  1.0
 #        Created:  2018-05-26 13:19:37
-#  Last Modified:  2018-05-26 15:10:17
+#  Last Modified:  2018-05-26 15:28:40
 #       Revision:  none
 #       Compiler:  gcc
 #
@@ -26,10 +26,11 @@ from sensor_msgs.msg import Image
 def callback(data):
     frame = CvBridge().imgmsg_to_cv2(data, 'bgr8')
     cv2.imshow('frame', frame)
+    cv2.waitKey(1)
 
 
-def listenner():
-    rospy.init_node('listenner', anonymous=True)
+def listener():
+    rospy.init_node('listener', anonymous=True)
     sub = rospy.Subscriber('video', Image, callback)
     rospy.spin()
 

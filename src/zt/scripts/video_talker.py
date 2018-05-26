@@ -7,7 +7,7 @@
 #
 #        Version:  1.0
 #        Created:  2018-05-26 11:15:48
-#  Last Modified:  2018-05-26 15:10:00
+#  Last Modified:  2018-05-26 15:11:20
 #       Revision:  none
 #       Compiler:  gcc
 #
@@ -34,7 +34,7 @@ def GetImgAndPub():
         frame = imutils.resize(frame, width=300)
         data = CvBridge().cv2_to_imgmsg(frame, 'bgr8')
         pub.publish(data)
-        #cv2.imshow('frame', frame)
+        cv2.imshow('frame', frame)
         cv2.waitKey(1)
 
     cap.release()
