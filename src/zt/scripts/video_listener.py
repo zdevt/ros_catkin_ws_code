@@ -7,7 +7,7 @@
 #
 #        Version:  1.0
 #        Created:  2018-05-26 13:19:37
-#  Last Modified:  2018-06-01 09:00:29
+#  Last Modified:  2018-06-01 09:01:50
 #       Revision:  none
 #       Compiler:  gcc
 #
@@ -33,7 +33,7 @@ def callback(data):
 
 def listener():
     rospy.init_node('listener', anonymous=True)
-    sub = rospy.Subscriber('video', Image, callback)
+    sub = rospy.Subscriber('video', CompressedImage, callback)
     rospy.spin()
 
 

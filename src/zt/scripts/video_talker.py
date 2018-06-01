@@ -7,7 +7,7 @@
 #
 #        Version:  1.0
 #        Created:  2018-05-26 11:15:48
-#  Last Modified:  2018-06-01 08:59:52
+#  Last Modified:  2018-06-01 09:01:35
 #       Revision:  none
 #       Compiler:  gcc
 #
@@ -26,7 +26,7 @@ from sensor_msgs.msg import CompressedImage
 
 def GetImgAndPub():
     rospy.init_node('video_talker', anonymous=True)
-    pub = rospy.Publisher('video', Image, queue_size=10)
+    pub = rospy.Publisher('video', CompressedImage, queue_size=10)
     cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FPS, 10)
 
