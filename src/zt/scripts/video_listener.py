@@ -7,7 +7,7 @@
 #
 #        Version:  1.0
 #        Created:  2018-05-26 13:19:37
-#  Last Modified:  2018-05-26 15:28:40
+#  Last Modified:  2018-06-01 09:00:29
 #       Revision:  none
 #       Compiler:  gcc
 #
@@ -20,11 +20,13 @@ import rospy
 import numpy as np
 
 from cv_bridge import CvBridge, CvBridgeError
-from sensor_msgs.msg import Image
+# from sensor_msgs.msg import Image
+from sensor_msgs.msg import CompressedImage
 
 
 def callback(data):
-    frame = CvBridge().imgmsg_to_cv2(data, 'bgr8')
+    #frame = CvBridge().imgmsg_to_cv2(data, 'bgr8')
+    frame = CvBridge().compressed_imgmsg_to_cv2(data, 'bgr8')
     cv2.imshow('frame', frame)
     cv2.waitKey(1)
 

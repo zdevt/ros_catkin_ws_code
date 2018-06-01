@@ -7,7 +7,7 @@
 #
 #        Version:  1.0
 #        Created:  2018-05-26 11:15:48
-#  Last Modified:  2018-05-26 15:11:20
+#  Last Modified:  2018-06-01 08:59:52
 #       Revision:  none
 #       Compiler:  gcc
 #
@@ -20,7 +20,8 @@ import rospy
 import numpy as np
 
 from cv_bridge import CvBridge, CvBridgeError
-from sensor_msgs.msg import Image
+#from sensor_msgs.msg import Image
+from sensor_msgs.msg import CompressedImage
 
 
 def GetImgAndPub():
@@ -32,10 +33,11 @@ def GetImgAndPub():
     while cap.isOpened() and not rospy.is_shutdown():
         (_, frame) = cap.read()
         frame = imutils.resize(frame, width=300)
-        data = CvBridge().cv2_to_imgmsg(frame, 'bgr8')
+        #data = CvBridge().cv2_to_imgmsg(frame, 'bgr8')
+        data = CvBridge().cv2_to_compressed_imgmsg(frame, 'bgr8')
         pub.publish(data)
-        cv2.imshow('frame', frame)
-        cv2.waitKey(1)
+        # cv2.imshow('frame', frame)
+        # cv2.waitKey(1)
 
     cap.release()
     cv2.destroyAllWindows()
